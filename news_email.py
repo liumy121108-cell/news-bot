@@ -5,7 +5,6 @@ import datetime    # To get today's date for the email subject
 import re          # To strip HTML tags from summaries
 
 # ── Third-party import (install with: pip install feedparser) ──
-!pip install feedparser
 import feedparser  # Parses RSS/Atom feeds from news websites
 
 
