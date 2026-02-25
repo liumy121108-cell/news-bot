@@ -24,6 +24,6 @@ jobs:
 
       - name: Run news bot
         env:
-          EMAIL_USER: ${{ secrets.EMAIL_USER }}
-          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+          EMAIL_ADDRESS: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASS }}
         run: python news_email.py
