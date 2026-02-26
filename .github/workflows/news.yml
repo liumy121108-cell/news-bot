@@ -2,7 +2,6 @@ name: Daily News Email Bot
 
 on:
   schedule:
-    # 每天新加坡时间 08:00 = UTC 00:00
     - cron: "0 0 * * *"
   workflow_dispatch:
 
@@ -20,10 +19,13 @@ jobs:
           python-version: "3.10"
 
       - name: Install dependencies
-        run: pip install feedparser
+        run: |
+          pip install feedparser
+          pip install newspaper3k
+          pip install lxml_html_clean
 
       - name: Run news bot
         env:
-          EMAIL_ADDRESS: ${{ secrets.EMAIL_USER }}
-          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASS }}
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
         run: python news_email.py
